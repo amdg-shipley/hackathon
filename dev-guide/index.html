@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hack Eye Street - Developer Setup Guide</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="event-date">MARCH 8</div>
+                <h1>Hack Eye Street</h1>
+                <p>Developer Setup Guide</p>
+            </div>
+        </header>
+        
+        <div class="container guide-container">
+            <nav>
+                <ul>
+                    <li><a href="#about">About the Hackathon</a></li>
+                    <li><a href="#git">Git Basics</a></li>
+                    <li><a href="#vscode">VS Code Setup</a></li>
+                    <li><a href="#libraries">Essential Libraries</a></li>
+                    <li><a href="#copilot">GitHub Copilot Guide</a></li>
+                    <li><a href="#resources">Additional Resources</a></li>
+                </ul>
+            </nav>
+            
+            <main>
+                <section id="about">
+                    <h2>About Hack Eye Street</h2>
+                    <p>Hack Eye Street will bring together teams of students to design and build an original piece of technology. As Gonzaga's first hackathon, this event welcomes both experienced STEM students and tech newcomers to collaborate and create. No coding or STEM experience required!</p>
+                    
+                    <div class="two-column">
+                        <div>
+                            <h3>Event Details</h3>
+                            <ul>
+                                <li><strong>Dates:</strong> March 8</li>
+                                <li><strong>Location:</strong> Gonzaga University</li>
+                                <li><strong>Who:</strong> All Gonzaga students welcome!</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Core Ideals</h3>
+                            <ul>
+                                <li>Creativity</li>
+                                <li>Problem-Solving</li>
+                                <li>Teamwork</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Sign Up Now</h3>
+                    <div class="form-container">
+                        <iframe src="https://forms.gle/DcfqLh1Dj3Y9WCKZA?embedded=true" 
+                                width="100%" 
+                                height="800" 
+                                frameborder="0" 
+                                marginheight="0" 
+                                marginwidth="0">
+                            Loading form...
+                        </iframe>
+                    </div>
+                    
+                    <div class="note">
+                        <p><strong>Note:</strong> This guide will help you set up all the tools you need for the hackathon. If you have any issues, mentors will be available during the event to provide assistance.</p>
+                    </div>
+                </section>
+                
+                <section id="git">
+                    <h2>Git Basics</h2>
+                    <p>Git is an essential tool for version control and collaboration. Here's how to get started:</p>
+                    
+                    <h3>Installing Git</h3>
+                    <ol>
+                        <li>Visit <a href="https://git-scm.com/downloads" target="_blank">git-scm.com/downloads</a></li>
+                        <li>Download the installer for your operating system</li>
+                        <li>Run the installer with default settings</li>
+                        <li>Verify installation by opening a terminal/command prompt and typing:
+                            <div class="command-block">git --version</div>
+                        </li>
+                    </ol>
+                    
+                    <h3>Initial Configuration</h3>
+                    <p>Set your identity with the following commands:</p>
+                    <div class="command-block">
+    git config --global user.name "Your Name"
+    git config --global user.email "your.email@example.com"
+    git config --global color.ui auto
+                    </div>
+                    
+                    <h3>Essential Git Commands</h3>
+                    <table>
+                        <tr>
+                            <th>Command</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><code>git init</code></td>
+                            <td>Initialize a new Git repository</td>
+                        </tr>
+                        <tr>
+                            <td><code>git clone [url]</code></td>
+                            <td>Clone a repository from a URL</td>
+                        </tr>
+                        <tr>
+                            <td><code>git status</code></td>
+                            <td>Show modified files in working directory</td>
+                        </tr>
+                        <tr>
+                            <td><code>git add [file]</code></td>
+                            <td>Add a file to the staging area</td>
+                        </tr>
+                        <tr>
+                            <td><code>git add .</code></td>
+                            <td>Add all modified files to the staging area</td>
+                        </tr>
+                        <tr>
+                            <td><code>git commit -m "[message]"</code></td>
+                            <td>Commit staged changes with a message</td>
+                        </tr>
+                        <tr>
+                            <td><code>git push</code></td>
+                            <td>Push commits to remote repository</td>
+                        </tr>
+                        <tr>
+                            <td><code>git pull</code></td>
+                            <td>Pull changes from remote repository</td>
+                        </tr>
+                        <tr>
+                            <td><code>git branch</code></td>
+                            <td>List all local branches</td>
+                        </tr>
+                        <tr>
+                            <td><code>git branch [name]</code></td>
+                            <td>Create a new branch</td>
+                        </tr>
+                        <tr>
+                            <td><code>git checkout [branch]</code></td>
+                            <td>Switch to another branch</td>
+                        </tr>
+                        <tr>
+                            <td><code>git merge [branch]</code></td>
+                            <td>Merge a branch into the current branch</td>
+                        </tr>
+                    </table>
+                    
+                    <h3>Common Git Workflow</h3>
+                    <ol>
+                        <li>Create/clone a repository:
+                            <div class="command-block">git clone https://github.com/username/repository.git</div>
+                        </li>
+                        <li>Create a branch for your feature:
+                            <div class="command-block">git checkout -b feature-name</div>
+                        </li>
+                        <li>Make changes to files</li>
+                        <li>Stage your changes:
+                            <div class="command-block">git add .</div>
+                        </li>
+                        <li>Commit your changes:
+                            <div class="command-block">git commit -m "Add feature X"</div>
+                        </li>
+                        <li>Push to remote repository:
+                            <div class="command-block">git push origin feature-name</div>
+                        </li>
+                        <li>Create a pull request on GitHub</li>
+                    </ol>
+                </section>
+                
+                <section id="vscode">
+                    <h2>VS Code Setup</h2>
+                    <p>Visual Studio Code is a powerful, lightweight code editor with great support for various programming languages and extensions.</p>
+                    
+                    <h3>Installation</h3>
+                    <ol>
+                        <li>Visit <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a></li>
+                        <li>Download the installer for your operating system</li>
+                        <li>Run the installer with default settings</li>
+                    </ol>
+                    
+                    <h3>Essential Extensions</h3>
+                    <p>To install extensions, click on the Extensions icon in the sidebar or press <code>Ctrl+Shift+X</code> and search for:</p>
+                    <ul>
+                        <li><strong>GitHub Copilot</strong> - AI pair programmer</li>
+                        <li><strong>Python</strong> - Python language support</li>
+                        <li><strong>ESLint</strong> - JavaScript linting</li>
+                        <li><strong>Prettier</strong> - Code formatter</li>
+                        <li><strong>Live Server</strong> - Local development server with live reload</li>
+                        <li><strong>GitLens</strong> - Git supercharged</li>
+                        <li><strong>Error Lens</strong> - Improved error highlighting</li>
+                        <li><strong>Auto Rename Tag</strong> - Automatically rename paired HTML/XML tags</li>
+                    </ul>
+                    
+                    <h3>Configuring VS Code for Git</h3>
+                    <ol>
+                        <li>Open VS Code</li>
+                        <li>Press <code>Ctrl+Shift+P</code> to open the Command Palette</li>
+                        <li>Type "Git: Clone" and press Enter</li>
+                        <li>Enter the URL of your repository</li>
+                        <li>Select a folder to clone into</li>
+                    </ol>
+                    
+                    <div class="note">
+                        <p><strong>Tip:</strong> Enable auto-save by going to File > Auto Save, or by adding <code>"files.autoSave": "afterDelay"</code> to your settings.json file.</p>
+                    </div>
+                </section>
+                
+                <section id="libraries">
+                    <h2>Essential Libraries & Tools</h2>
+                    
+                    <h3>Python Setup</h3>
+                    <ol>
+                        <li>Visit <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a></li>
+                        <li>Download the latest version (3.x) for your OS</li>
+                        <li>During installation, check "Add Python to PATH"</li>
+                        <li>Verify installation:
+                            <div class="command-block">python --version</div>
+                        </li>
+                        <li>Install pip (if not installed):
+                            <div class="command-block">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    python get-pip.py</div>
+                        </li>
+                    </ol>
+                    
+                    <h3>Essential Python Libraries</h3>
+                    <div class="command-block">
+    pip install numpy pandas matplotlib seaborn scikit-learn tensorflow flask django pytest requests
+                    </div>
+                    
+                    <h3>Node.js Setup</h3>
+                    <ol>
+                        <li>Visit <a href="https://nodejs.org/" target="_blank">nodejs.org</a></li>
+                        <li>Download the LTS version</li>
+                        <li>Run the installer with default settings</li>
+                        <li>Verify installation:
+                            <div class="command-block">node --version
+    npm --version</div>
+                        </li>
+                    </ol>
+                    
+                    <h3>Essential Node.js Packages</h3>
+                    <div class="command-block">
+    npm install -g create-react-app typescript nodemon express-generator
+                    </div>
+                    
+                    <h3>Database Tools</h3>
+                    <ul>
+                        <li><strong>SQLite</strong>: <a href="https://www.sqlite.org/download.html" target="_blank">sqlite.org/download</a></li>
+                        <li><strong>MongoDB</strong>: <a href="https://www.mongodb.com/try/download/community" target="_blank">mongodb.com/try/download</a></li>
+                        <li><strong>PostgreSQL</strong>: <a href="https://www.postgresql.org/download/" target="_blank">postgresql.org/download</a></li>
+                    </ul>
+                    
+                    <h3>Version Management Tools</h3>
+                    <ul>
+                        <li><strong>pyenv</strong> (Python): <a href="https://github.com/pyenv/pyenv#installation" target="_blank">github.com/pyenv/pyenv</a></li>
+                        <li><strong>nvm</strong> (Node.js): <a href="https://github.com/nvm-sh/nvm#installing-and-updating" target="_blank">github.com/nvm-sh/nvm</a></li>
+                    </ul>
+                    
+                    <h3>Virtual Environments (Python)</h3>
+                    <div class="command-block">
+    # Create virtual environment
+    python -m venv venv
+
+    # Activate on Windows
+    venv\Scripts\activate
+
+    # Activate on macOS/Linux
+    source venv/bin/activate
+
+    # Install requirements
+    pip install -r requirements.txt
+                    </div>
+                </section>
+                
+                <section id="copilot">
+                    <h2>GitHub Copilot Guide</h2>
+                    <p>GitHub Copilot is an AI pair programmer that helps you write code faster with less work.</p>
+                    
+                    <h3>Setting Up Copilot</h3>
+                    <ol>
+                        <li>Sign up for GitHub Copilot at <a href="https://github.com/features/copilot" target="_blank">github.com/features/copilot</a> (free for students with GitHub Student Pack)</li>
+                        <li>Install the GitHub Copilot extension in VS Code</li>
+                        <li>Sign in with your GitHub account in VS Code</li>
+                    </ol>
+                    
+                    <h3>Using Copilot Effectively</h3>
+                    <table>
+                        <tr>
+                            <th>Action</th>
+                            <th>Shortcut/Method</th>
+                        </tr>
+                        <tr>
+                            <td>Accept suggestion</td>
+                            <td><code>Tab</code></td>
+                        </tr>
+                        <tr>
+                            <td>Reject suggestion</td>
+                            <td><code>Esc</code></td>
+                        </tr>
+                        <tr>
+                            <td>Next suggestion</td>
+                            <td><code>Alt+]</code> or <code>Option+]</code></td>
+                        </tr>
+                        <tr>
+                            <td>Previous suggestion</td>
+                            <td><code>Alt+[</code> or <code>Option+[</code></td>
+                        </tr>
+                        <tr>
+                            <td>Trigger inline suggestion</td>
+                            <td><code>Alt+\</code> or <code>Option+\</code></td>
+                        </tr>
+                        <tr>
+                            <td>Open Copilot (multiple suggestions)</td>
+                            <td><code>Ctrl+Enter</code> or <code>Cmd+Enter</code></td>
+                        </tr>
+                    </table>
+                    
+                    <h3>Copilot Best Practices</h3>
+                    <ul>
+                        <li><strong>Write clear comments</strong> - Describe what you want to accomplish</li>
+                        <li><strong>Use function signatures</strong> - Define function names and parameters</li>
+                        <li><strong>Write tests first</strong> - Copilot can generate implementation from tests</li>
+                        <li><strong>Start with examples</strong> - Show patterns with examples</li>
+                        <li><strong>Iterative refinement</strong> - Accept parts of suggestions and modify as needed</li>
+                    </ul>
+                    
+                    <h3>Example Prompts for Copilot</h3>
+                    <pre><code>// Create a function that calculates the Fibonacci sequence up to n terms
+
+    // Implement a React component that displays a responsive image gallery
+
+    # Create a Flask API endpoint that accepts POST requests with JSON data
+
+    # Write a function to clean and preprocess text data for NLP
+    </code></pre>
+                    
+                    <div class="note">
+                        <p><strong>Remember:</strong> Always review and understand Copilot suggestions before accepting them. The AI is a tool to enhance your productivity, not replace your understanding.</p>
+                    </div>
+                </section>
+                
+                <section id="resources">
+                    <h2>Additional Resources</h2>
+                    
+                    <h3>Git & GitHub</h3>
+                    <ul>
+                        <li><a href="https://docs.github.com/en/get-started" target="_blank">GitHub Getting Started Guide</a></li>
+                        <li><a href="https://git-scm.com/book/en/v2" target="_blank">Pro Git Book (free online)</a></li>
+                        <li><a href="https://learngitbranching.js.org/" target="_blank">Learn Git Branching (interactive)</a></li>
+                    </ul>
+                    
+                    <h3>Web Development</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/" target="_blank">MDN Web Docs</a></li>
+                        <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
+                        <li><a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a></li>
+                        <li><a href="https://reactjs.org/docs/getting-started.html" target="_blank">React Documentation</a></li>
+                    </ul>
+                    
+                    <h3>Python Resources</h3>
+                    <ul>
+                        <li><a href="https://docs.python.org/3/" target="_blank">Python Official Documentation</a></li>
+                        <li><a href="https://realpython.com/" target="_blank">Real Python Tutorials</a></li>
+                        <li><a href="https://www.pythoncheatsheet.org/" target="_blank">Python Cheatsheet</a></li>
+                    </ul>
+                    
+                    <h3>VS Code</h3>
+                    <ul>
+                        <li><a href="https://code.visualstudio.com/docs" target="_blank">VS Code Documentation</a></li>
+                        <li><a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf" target="_blank">VS Code Keyboard Shortcuts (Windows)</a></li>
+                        <li><a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf" target="_blank">VS Code Keyboard Shortcuts (macOS)</a></li>
+                    </ul>
+                    
+                    <h3>Hackathon Preparation</h3>
+                    <ul>
+                        <li><a href="https://hackathon.guide/" target="_blank">Hackathon Guide</a></li>
+                        <li><a href="https://mlh.io/event-guidelines" target="_blank">MLH Event Guidelines</a></li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+        
+        <footer>
+            <div class="container">
+                <p>Hack Eye Street | Gonzaga University | March 7-8</p>
+                <p>&copy; 2025 Hack Eye Street. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>
