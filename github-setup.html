@@ -5,11 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Getting Started with GitHub & VS Code - Hack Eye Street</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦅</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
 <body>
     <header>
+        <!-- Mobile Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark mobile-nav">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html#about">About the Hackathon</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#git">Git Basics</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#vscode">VS Code Setup</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#libraries">Essential Libraries</a></li>
+                        <li class="nav-item"><a class="nav-link" href="github-setup.html">GitHub & Copilot Setup</a></li>
+                        <li class="nav-item"><a class="nav-link" href="crud-tutorial.html">CRUD App Tutorial</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#resources">Additional Resources</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <div class="container">
             <a href="index.html" class="header-link">
                 <div class="event-date">MARCH 8</div>
@@ -20,7 +40,7 @@
     </header>
     
     <div class="container guide-container">
-        <nav>
+        <nav class="desktop-nav">
             <ul>
                 <li><a href="index.html#about">About the Hackathon</a></li>
                 <li><a href="index.html#git">Git Basics</a></li>
@@ -232,5 +252,7 @@
             <p>&copy; 2025 Hack Eye Street. All rights reserved.</p>
         </div>
     </footer>
+    <button id="back-to-top" title="Back to Top">↑</button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html> 
