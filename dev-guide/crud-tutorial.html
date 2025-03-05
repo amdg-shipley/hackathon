@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Stack Web Development Crash Course - CRUD App Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="header-link">
+                <div class="event-date">MARCH 8</div>
+                <h1>Hack Eye Street</h1>
+                <p>Developer Setup Guide</p>
+            </a>
+        </div>
+    </header>
+    
+    <div class="container guide-container">
+        <nav>
+            <ul>
+                <li><a href="index.html#about">About the Hackathon</a></li>
+                <li><a href="index.html#git">Git Basics</a></li>
+                <li><a href="index.html#vscode">VS Code Setup</a></li>
+                <li><a href="index.html#libraries">Essential Libraries</a></li>
+                <li><a href="index.html#copilot">GitHub Copilot Guide</a></li>
+                <li><a href="crud-tutorial.html">CRUD App Tutorial</a></li>
+                <li><a href="index.html#resources">Additional Resources</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <section>
+                <h1>Full-Stack Web Development Crash Course: Building a CRUD App</h1>
+                <p class="subtitle">Welcome to this crash course on full-stack web development! In the next 45 minutes, we'll learn how to build a simple CRUD application using modern web technologies, and leverage GitHub Copilot to accelerate your development process.</p>
+
+                <div class="learning-objectives">
+                    <h2>Learning Objectives</h2>
+                    <ul>
+                        <li>✅ Understand the basics of CRUD operations</li>
+                        <li>✅ Set up a Node.js and Express server</li>
+                        <li>✅ Create a simple front-end with HTML/CSS</li>
+                        <li>✅ Connect front-end and back-end using Express and EJS</li>
+                        <li>✅ Use GitHub Copilot to enhance development</li>
+                        <li>✅ Deploy your application</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <h2>Step 1: Understanding CRUD and Web Architecture</h2>
+                    <h3>What is CRUD?</h3>
+                    <ul>
+                        <li><strong>Create:</strong> Adding new data to your database</li>
+                        <li><strong>Read:</strong> Fetching and displaying existing data</li>
+                        <li><strong>Update:</strong> Modifying existing data</li>
+                        <li><strong>Delete:</strong> Removing data from your database</li>
+                    </ul>
+
+                    <h3>Front-End vs Back-End</h3>
+                    <ul>
+                        <li><strong>Front-End:</strong> What users see and interact with (HTML, CSS, JavaScript)</li>
+                        <li><strong>Back-End:</strong> Server-side code that processes requests and works with databases (Node.js, Express)</li>
+                        <li><strong>Full-Stack:</strong> Combining both front-end and back-end development</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <h2>Step 2: Setting Up Your Development Environment</h2>
+                    <div class="info-box">
+                        <p><strong>📚Learn:</strong> A development environment is where you write and test your code before sharing it with others. Think of it as your digital workshop.</p>
+                    </div>
+                    <ol>
+                        <li>Install Node.js from nodejs.org</li>
+                        <li>Create a new project folder:
+                            <pre><code>mkdir my-crud-app
+cd my-crud-app</code></pre>
+                        </li>
+                        <li>Initialize your project:
+                            <pre><code>npm init -y</code></pre>
+                        </li>
+                        <li>Install necessary packages:
+                            <pre><code>npm install express ejs simple-json-db</code></pre>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <h2>Step 3: Building Your First Server</h2>
+                    <div class="info-box">
+                        <p><strong>📚Learn:</strong> A server is a computer program that receives requests from users' browsers, processes them, and sends back responses. It's like a restaurant waiter taking orders and bringing food.</p>
+                    </div>
+                    <p>Create a file named <code>app.js</code> with the following code:</p>
+                    <pre><code>const express = require('express');
+const path = require('path');
+const JSONdb = require('simple-json-db');
+const app = express();
+const db = new JSONdb('./data.json');
+
+// Set up middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Set up the view engine
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+// Define your routes here
+app.get('/', (req, res) => {
+  const items = db.get('items') || [];
+  res.render('index', { items: items });
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});</code></pre>
+                </div>
+
+                <div class="step">
+                    <h2>Step 4: Creating Your Views</h2>
+                    <div class="info-box">
+                        <p><strong>📚Learn:</strong> Views are the set of front-end html pages that will be displaying your application's functionality and data to the user. The "face" and UI of your app.</p>
+                    </div>
+                    <ol>
+                        <li>Create a folder named <code>views</code></li>
+                        <li>Inside the views folder, create a file named <code>index.ejs</code> with the provided HTML template</li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <h2>Step 5: Implementing CRUD Operations</h2>
+                    <div class="info-box">
+                        <p><strong>📚Learn:</strong> Routes tell your server which code to run when someone visits different URLs, like telling a receptionist which department should handle different types of calls.</p>
+                    </div>
+                    <p>Add these routes to your <code>app.js</code>:</p>
+                    <pre><code>// Create operation
+app.post('/item', (req, res) => {
+  const items = db.get('items') || [];
+  items.push({
+    name: req.body.name,
+    description: req.body.description
+  });
+  db.set('items', items);
+  res.redirect('/');
+});
+
+// Read operation (already implemented in the main route)
+
+// Update operation - form
+app.get('/item/:id/edit', (req, res) => {
+  const items = db.get('items') || [];
+  const item = items[req.params.id];
+  res.render('edit', { item: item, id: req.params.id });
+});
+
+// Update operation - process
+app.post('/item/:id/update', (req, res) => {
+  const items = db.get('items') || [];
+  items[req.params.id] = {
+    name: req.body.name,
+    description: req.body.description
+  };
+  db.set('items', items);
+  res.redirect('/');
+});
+
+// Delete operation
+app.post('/item/:id/delete', (req, res) => {
+  const items = db.get('items') || [];
+  items.splice(req.params.id, 1);
+  db.set('items', items);
+  res.redirect('/');
+});</code></pre>
+                </div>
+
+                <div class="step">
+                    <h2>Step 6: Using GitHub Copilot</h2>
+                    <h3>Setting up GitHub Copilot:</h3>
+                    <ol>
+                        <li>Install GitHub Copilot extension in your code editor</li>
+                        <li>Sign in with your GitHub account</li>
+                        <li>Ensure your account has access to Copilot</li>
+                    </ol>
+
+                    <h3>Using Copilot for Development:</h3>
+                    <ul>
+                        <li>Prompt completions: Type a comment describing what you want to do, and Copilot will suggest code</li>
+                        <li>Contextual awareness: Copilot understands the structure of your project</li>
+                        <li>Learning from patterns: As you write more code, Copilot adapts to your style</li>
+                    </ul>
+
+                    <h3>Example Prompts for Copilot:</h3>
+                    <ul>
+                        <li>"// Create a function to validate form input"</li>
+                        <li>"// Add a route to handle API requests"</li>
+                        <li>"// Create a database query to filter items"</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <h2>Step 7: Pushing to GitHub</h2>
+                    <ol>
+                        <li>Initialize a Git repository:
+                            <pre><code>git init</code></pre>
+                        </li>
+                        <li>Create a <code>.gitignore</code> file:
+                            <pre><code>node_modules
+data.json</code></pre>
+                        </li>
+                        <li>Add and commit your changes:
+                            <pre><code>git add .
+git commit -m "Initial commit - CRUD app setup"</code></pre>
+                        </li>
+                        <li>Create a repository on GitHub and follow the instructions to push your code</li>
+                    </ol>
+                </div>
+
+                <div class="running-app">
+                    <h2>Running Your Application</h2>
+                    <ol>
+                        <li>Start your application:
+                            <pre><code>node app.js</code></pre>
+                        </li>
+                        <li>Open your browser and navigate to: <code>http://localhost:3000</code></li>
+                    </ol>
+                </div>
+
+                <div class="next-steps">
+                    <h2>Next Steps and Resources</h2>
+                    <h3>Enhance your UI:</h3>
+                    <ul>
+                        <li>Add Bootstrap or Tailwind CSS</li>
+                        <li>Improve form validation</li>
+                        <li>Add user authentication</li>
+                    </ul>
+
+                    <h3>Expand functionality:</h3>
+                    <ul>
+                        <li>Add search functionality</li>
+                        <li>Implement filtering and sorting</li>
+                        <li>Add image uploads</li>
+                    </ul>
+
+                    <h3>Deploy your application:</h3>
+                    <ul>
+                        <li>Deploy to Heroku, Vercel, or Netlify</li>
+                        <li>Set up continuous integration and deployment</li>
+                    </ul>
+
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://expressjs.com/">Express.js Documentation</a></li>
+                        <li><a href="https://ejs.co/">EJS Documentation</a></li>
+                        <li><a href="https://nodejs.org/docs/">Node.js Documentation</a></li>
+                        <li><a href="https://docs.github.com/en/copilot">GitHub Copilot Documentation</a></li>
+                        <li><a href="https://guides.github.com/">GitHub Guides</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Hack Eye Street | Gonzaga University | March 8</p>
+            <p>&copy; 2025 Hack Eye Street. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

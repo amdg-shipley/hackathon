@@ -9,9 +9,11 @@
     <body>
         <header>
             <div class="container">
-                <div class="event-date">MARCH 8</div>
-                <h1>Hack Eye Street</h1>
-                <p>Developer Setup Guide</p>
+                <a href="index.html" class="header-link">
+                    <div class="event-date">MARCH 8</div>
+                    <h1>Hack Eye Street</h1>
+                    <p>Developer Setup Guide</p>
+                </a>
             </div>
         </header>
         
@@ -22,7 +24,8 @@
                     <li><a href="#git">Git Basics</a></li>
                     <li><a href="#vscode">VS Code Setup</a></li>
                     <li><a href="#libraries">Essential Libraries</a></li>
-                    <li><a href="#copilot">GitHub Copilot Guide</a></li>
+                    <li><a href="github-setup.html">GitHub & Copilot Setup</a></li>
+                    <li><a href="crud-tutorial.html">CRUD App Tutorial</a></li>
                     <li><a href="#resources">Additional Resources</a></li>
                 </ul>
             </nav>
@@ -31,36 +34,24 @@
                 <section id="about">
                     <h2>About Hack Eye Street</h2>
                     <p>Hack Eye Street will bring together teams of students to design and build an original piece of technology. As Gonzaga's first hackathon, this event welcomes both experienced STEM students and tech newcomers to collaborate and create. No coding or STEM experience required!</p>
-                    
-                    <div class="two-column">
-                        <div>
-                            <h3>Event Details</h3>
-                            <ul>
-                                <li><strong>Dates:</strong> March 8</li>
-                                <li><strong>Location:</strong> Gonzaga University</li>
-                                <li><strong>Who:</strong> All Gonzaga students welcome!</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3>Core Ideals</h3>
-                            <ul>
-                                <li>Creativity</li>
-                                <li>Problem-Solving</li>
-                                <li>Teamwork</li>
-                            </ul>
-                        </div>
-                    </div>
 
-                    <h3>Sign Up Now</h3>
-                    <div class="form-container">
-                        <iframe src="https://forms.gle/DcfqLh1Dj3Y9WCKZA?embedded=true" 
-                                width="100%" 
-                                height="800" 
-                                frameborder="0" 
-                                marginheight="0" 
-                                marginwidth="0">
-                            Loading form...
-                        </iframe>
+                    <div class="schedule">
+                        <h3>Schedule for the Day</h3>
+                        <ul class="timeline">
+                            <li><strong>9:00 AM - 10:00 AM:</strong> Opening ceremonies and check-in (grab and go breakfast)</li>
+                            <li><strong>10:00 AM - 12:15 AM:</strong> Teaching Labs in Innovation Commons Classroom (optional)
+                                <ul>
+                                    <li>10:00 AM - 10:45 AM: Coding w/ AI and Github - Mr. Shipley</li>
+                                    <li>10:45 AM - 11:30 AM: Prototyping - Mr. Horan</li>
+                                    <li>11:30 AM - 12:15 AM: Graphic Design - Mr. Freeman</li>
+                                </ul>
+                            </li>
+                            <li><strong>10:00 AM - 5:00 PM:</strong> Working hours</li>
+                            <li><strong>12:30 PM - 1:30 PM:</strong> Working Lunch (snacks available throughout the day)</li>
+                            <li><strong>5:00 PM - 6:00 PM:</strong> Presentation preparation and dinner</li>
+                            <li><strong>6:00 PM - 7:00 PM:</strong> Dinner, presentations, judging, and closing ceremony</li>
+                        </ul>
+                        <p class="prize-note">Special swag prize for the champions! 🏆</p>
                     </div>
                     
                     <div class="note">
@@ -209,25 +200,6 @@
                 <section id="libraries">
                     <h2>Essential Libraries & Tools</h2>
                     
-                    <h3>Python Setup</h3>
-                    <ol>
-                        <li>Visit <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a></li>
-                        <li>Download the latest version (3.x) for your OS</li>
-                        <li>During installation, check "Add Python to PATH"</li>
-                        <li>Verify installation:
-                            <div class="command-block">python --version</div>
-                        </li>
-                        <li>Install pip (if not installed):
-                            <div class="command-block">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-    python get-pip.py</div>
-                        </li>
-                    </ol>
-                    
-                    <h3>Essential Python Libraries</h3>
-                    <div class="command-block">
-    pip install numpy pandas matplotlib seaborn scikit-learn tensorflow flask django pytest requests
-                    </div>
-                    
                     <h3>Node.js Setup</h3>
                     <ol>
                         <li>Visit <a href="https://nodejs.org/" target="_blank">nodejs.org</a></li>
@@ -253,11 +225,37 @@
                     
                     <h3>Version Management Tools</h3>
                     <ul>
-                        <li><strong>pyenv</strong> (Python): <a href="https://github.com/pyenv/pyenv#installation" target="_blank">github.com/pyenv/pyenv</a></li>
                         <li><strong>nvm</strong> (Node.js): <a href="https://github.com/nvm-sh/nvm#installing-and-updating" target="_blank">github.com/nvm-sh/nvm</a></li>
                     </ul>
+
+                    <h3>Optional: Python Setup (if you plan to use Python)</h3>
+                    <div class="note">
+                        <p><strong>Note:</strong> Python is optional and only needed if you plan to work with Python-based projects during the hackathon.</p>
+                    </div>
+                    <ol>
+                        <li>Visit <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a></li>
+                        <li>Download the latest version (3.x) for your OS</li>
+                        <li>During installation, check "Add Python to PATH"</li>
+                        <li>Verify installation:
+                            <div class="command-block">python --version</div>
+                        </li>
+                        <li>Install pip (if not installed):
+                            <div class="command-block">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    python get-pip.py</div>
+                        </li>
+                    </ol>
                     
-                    <h3>Virtual Environments (Python)</h3>
+                    <h3>Optional: Essential Python Libraries</h3>
+                    <div class="command-block">
+    pip install numpy pandas matplotlib seaborn scikit-learn tensorflow flask django pytest requests
+                    </div>
+                    
+                    <h3>Optional: Python Version Management</h3>
+                    <ul>
+                        <li><strong>pyenv</strong> (Python): <a href="https://github.com/pyenv/pyenv#installation" target="_blank">github.com/pyenv/pyenv</a></li>
+                    </ul>
+                    
+                    <h3>Optional: Virtual Environments (Python)</h3>
                     <div class="command-block">
     # Create virtual environment
     python -m venv venv
@@ -270,73 +268,6 @@
 
     # Install requirements
     pip install -r requirements.txt
-                    </div>
-                </section>
-                
-                <section id="copilot">
-                    <h2>GitHub Copilot Guide</h2>
-                    <p>GitHub Copilot is an AI pair programmer that helps you write code faster with less work.</p>
-                    
-                    <h3>Setting Up Copilot</h3>
-                    <ol>
-                        <li>Sign up for GitHub Copilot at <a href="https://github.com/features/copilot" target="_blank">github.com/features/copilot</a> (free for students with GitHub Student Pack)</li>
-                        <li>Install the GitHub Copilot extension in VS Code</li>
-                        <li>Sign in with your GitHub account in VS Code</li>
-                    </ol>
-                    
-                    <h3>Using Copilot Effectively</h3>
-                    <table>
-                        <tr>
-                            <th>Action</th>
-                            <th>Shortcut/Method</th>
-                        </tr>
-                        <tr>
-                            <td>Accept suggestion</td>
-                            <td><code>Tab</code></td>
-                        </tr>
-                        <tr>
-                            <td>Reject suggestion</td>
-                            <td><code>Esc</code></td>
-                        </tr>
-                        <tr>
-                            <td>Next suggestion</td>
-                            <td><code>Alt+]</code> or <code>Option+]</code></td>
-                        </tr>
-                        <tr>
-                            <td>Previous suggestion</td>
-                            <td><code>Alt+[</code> or <code>Option+[</code></td>
-                        </tr>
-                        <tr>
-                            <td>Trigger inline suggestion</td>
-                            <td><code>Alt+\</code> or <code>Option+\</code></td>
-                        </tr>
-                        <tr>
-                            <td>Open Copilot (multiple suggestions)</td>
-                            <td><code>Ctrl+Enter</code> or <code>Cmd+Enter</code></td>
-                        </tr>
-                    </table>
-                    
-                    <h3>Copilot Best Practices</h3>
-                    <ul>
-                        <li><strong>Write clear comments</strong> - Describe what you want to accomplish</li>
-                        <li><strong>Use function signatures</strong> - Define function names and parameters</li>
-                        <li><strong>Write tests first</strong> - Copilot can generate implementation from tests</li>
-                        <li><strong>Start with examples</strong> - Show patterns with examples</li>
-                        <li><strong>Iterative refinement</strong> - Accept parts of suggestions and modify as needed</li>
-                    </ul>
-                    
-                    <h3>Example Prompts for Copilot</h3>
-                    <pre><code>// Create a function that calculates the Fibonacci sequence up to n terms
-
-    // Implement a React component that displays a responsive image gallery
-
-    # Create a Flask API endpoint that accepts POST requests with JSON data
-
-    # Write a function to clean and preprocess text data for NLP
-    </code></pre>
-                    
-                    <div class="note">
-                        <p><strong>Remember:</strong> Always review and understand Copilot suggestions before accepting them. The AI is a tool to enhance your productivity, not replace your understanding.</p>
                     </div>
                 </section>
                 
@@ -383,7 +314,7 @@
         
         <footer>
             <div class="container">
-                <p>Hack Eye Street | Gonzaga University | March 7-8</p>
+                <p>Hack Eye Street | Gonzaga University | March 8</p>
                 <p>&copy; 2025 Hack Eye Street. All rights reserved.</p>
             </div>
         </footer>

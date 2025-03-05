@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with GitHub & VS Code - Hack Eye Street</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="header-link">
+                <div class="event-date">MARCH 8</div>
+                <h1>Hack Eye Street</h1>
+                <p>Developer Setup Guide</p>
+            </a>
+        </div>
+    </header>
+    
+    <div class="container guide-container">
+        <nav>
+            <ul>
+                <li><a href="index.html#about">About the Hackathon</a></li>
+                <li><a href="index.html#git">Git Basics</a></li>
+                <li><a href="index.html#vscode">VS Code Setup</a></li>
+                <li><a href="index.html#libraries">Essential Libraries</a></li>
+                <li><a href="github-setup.html">GitHub & Copilot Setup</a></li>
+                <li><a href="crud-tutorial.html">CRUD App Tutorial</a></li>
+                <li><a href="index.html#resources">Additional Resources</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <section>
+                <h1>Getting Started with GitHub & VS Code</h1>
+                <p class="subtitle">A step-by-step guide for Gonzaga students to set up their development environment with GitHub and GitHub Copilot.</p>
+
+                <div class="step">
+                    <h2>1. Create Your GitHub Account 🚀</h2>
+                    <ol>
+                        <li>Go to <a href="https://github.com/signup" target="_blank">github.com/signup</a></li>
+                        <li>Click "Sign up"</li>
+                        <li>Use your @gonzaga.org email address</li>
+                        <li>Choose a unique username</li>
+                        <li>Create a strong password</li>
+                        <li>Verify your email address when prompted</li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <h2>2. Get GitHub Student Benefits & Copilot 🎓</h2>
+                    
+                    <h3>Set up two-factor authentication (2FA) - Required for Copilot:</h3>
+                    <ol>
+                        <li>Go to your GitHub profile settings</li>
+                        <li>Click "Password and authentication"</li>
+                        <li>Under "Two-factor authentication," click "Enable 2FA"</li>
+                        <li>Follow the prompts to set up using an authenticator app (recommended) or SMS</li>
+                    </ol>
+
+                    <h3>Add your address information - Required for Copilot:</h3>
+                    <ol>
+                        <li>Go to your GitHub profile settings</li>
+                        <li>Click "Billing and plans"</li>
+                        <li>Click "Add billing address"</li>
+                        <li>Fill in your information (for students, your school address is fine)</li>
+                        <li>Save your information</li>
+                    </ol>
+
+                    <h3>Apply for GitHub Student Benefits:</h3>
+                    <ol>
+                        <li>Visit <a href="https://education.github.com/benefits" target="_blank">education.github.com/benefits</a></li>
+                        <li>Click "Get student benefits"</li>
+                        <li>Sign in with your GitHub account</li>
+                        <li>Select "Student"</li>
+                        <li>Use your @gonzaga.org email</li>
+                        <li>For proof of student status:
+                            <ol>
+                                <li>Go to your Gonzaga profile page: <a href="https://gonzaga.myschoolapp.com/app/faculty#profile/7387213/contactcard" target="_blank">gonzaga.myschoolapp.com</a></li>
+                                <li>Take a full-page screenshot:
+                                    <ul>
+                                        <li>Windows: Press Windows+Shift+S, then select "Full-screen"</li>
+                                        <li>Mac: Press Command+Shift+3</li>
+                                    </ul>
+                                </li>
+                                <li>Upload this screenshot when prompted by GitHub</li>
+                            </ol>
+                        </li>
+                        <li>Wait for verification email (usually within 48 hours)</li>
+                        <li>Once approved, activate GitHub Copilot from your benefits page</li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <h2>3. Set Up VS Code with GitHub 💻</h2>
+                    
+                    <h3>Download & install Git:</h3>
+                    <div class="info-box">
+                        <h4>For Windows Users:</h4>
+                        <ol>
+                            <li>Go to <a href="https://git-scm.com/download/win" target="_blank">git-scm.com/download/win</a></li>
+                            <li>Download the installer and follow the prompts (use default settings)</li>
+                        </ol>
+
+                        <h4>For Mac Users:</h4>
+                        <ol>
+                            <li>Restart your computer</li>
+                            <li>Install Homebrew first (if not already installed):
+                                <div class="command-block">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</div>
+                                <p>Follow the prompts and wait for the terminal to install Xcode completely (may take a few minutes)</p>
+                                <p>After installation, Homebrew will show you some commands to run. They will look something like this:</p>
+                                <div class="command-block">==> Next steps:
+- Run these two commands in your terminal to add Homebrew to your PATH:
+
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
+
+    eval "$(/opt/homebrew/bin/brew shellenv)"</div>
+                                <p>Run these commands exactly as shown in your terminal. This ensures Homebrew is properly added to your system's PATH.</p>
+                            </li>
+                            <li>Then install Git using Homebrew:
+                                <div class="command-block">brew install git</div>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <h3>Verify Git Installation:</h3>
+                    <div class="command-block">git --version</div>
+
+                    <h3>Set Up VS Code:</h3>
+                    <ol>
+                        <li>Download & install VS Code from <a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a></li>
+                        <li>Install these VS Code extensions:
+                            <ul>
+                                <li>GitHub Copilot</li>
+                            </ul>
+                        </li>
+                        <li>Sign into GitHub in VS Code:
+                            <ol>
+                                <li>Click the profile icon in the bottom left</li>
+                                <li>Select "Account and Sync Settings"</li>
+                                <li>Choose "Sign in"</li>
+                                <li>Choose "Sign in with GitHub"</li>
+                                <li>Complete authentication in your browser</li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <h2>4. Create & Publish Your First Site 🌐</h2>
+                    
+                    <h3>Create a new project folder:</h3>
+                    <ol>
+                        <li>Open VS Code</li>
+                        <li>Click on the "Explorer" tab in the left sidebar (or press Ctrl+Shift+E / Cmd+Shift+E)</li>
+                        <li>Click "Open Folder" button</li>
+                        <li>Select a location on your computer</li>
+                        <li>Click "New Folder" button</li>
+                        <li>Name your folder (e.g., "my-first-website")</li>
+                        <li>Click "Select Folder" to open it</li>
+                    </ol>
+
+                    <h3>Create an index.html file:</h3>
+                    <ol>
+                        <li>In the Explorer panel, hover over your folder name</li>
+                        <li>Click the "New File" icon (looks like a file with a + sign)</li>
+                        <li>Type "index.html" and press Enter</li>
+                        <li>The new file will open in the editor</li>
+                    </ol>
+
+                    <h3>Add the template code:</h3>
+                    <pre><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;title&gt;Bootstrap demo&lt;/title&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+    &lt;script type="text/javascript" src="script.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                    <h3>Publish to GitHub:</h3>
+                    <ol>
+                        <li>Click the "Source Control" tab in VS Code (branch icon)</li>
+                        <li>Click "Publish to GitHub"</li>
+                        <li>Choose "Public Repository"</li>
+                        <li>Select your folder</li>
+                        <li>Add a commit message</li>
+                        <li>Click "Publish"</li>
+                    </ol>
+
+                    <h3>Enable GitHub Pages:</h3>
+                    <ol>
+                        <li>Go to your repository on GitHub.com</li>
+                        <li>Click "Settings"</li>
+                        <li>Click "Pages" in the left sidebar</li>
+                        <li>Under "Branch", select "main" or "master"</li>
+                        <li>Click "Save"</li>
+                        <li>Wait a few minutes - your site will be live at: https://[your-username].github.io/[repository-name]</li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <h2>Need Help? 🆘</h2>
+                    <ul>
+                        <li>Ask your teacher for assistance</li>
+                        <li>Check error messages carefully</li>
+                        <li>Visit <a href="https://docs.github.com" target="_blank">docs.github.com</a> for documentation</li>
+                        <li>Use the VS Code GitHub extension for visual Git controls</li>
+                    </ul>
+                    <div class="note">
+                        <p><strong>Remember:</strong> Always commit and sync your changes to save your work online!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Hack Eye Street | Gonzaga University | March 8</p>
+            <p>&copy; 2025 Hack Eye Street. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
