@@ -220,6 +220,16 @@ footer {
     color: #fff;
 }
 
+footer a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
 .two-column {
     display: grid;
     grid-template-columns: 1fr 1fr;
